@@ -1,22 +1,34 @@
 #include<stdio.h>
 #include<conio.h> //permite getch.
 #include<string.h> // permite strcmp y strcpy.
-
+#include<iostream>
+#include<fstream>
+using namespace std;
 int main()
 {
-    char nombre[10][20];
-    char aux[20];//tiene que ser de igual o mayor tamaño que la segunda componente
+    char nombre[3000][100];
+    char aux[120];//tiene que ser de igual o mayor tamaño que la segunda componente
     //de nombre porque aquí copiaremos esa cadena.
     int i,j,k;
     int l=0;
-    printf("Para terminar escriba * \n");
+    string line;
+    
+    ifstream ar("Nombres.txt");
+    
+    while(getline(ar,line)){
+//    	cout << l << endl;
+    	strcpy(nombre[l++],line.c_str());
+	}
+    
+    
+    /*printf("Para terminar escriba * \n");
     do
         {
             printf("Introduce un nombre: ");
             gets(nombre[l]);//lee cadenas y las almacena.
             l++;
         }
-    while (strcmp(nombre[l-1],"*")!=0);//permite comparar cadenas.
+    while (strcmp(nombre[l-1],"*")!=0);//permite comparar cadenas.*/
 
     // ORDENAR CADENAS
     for(i=0; i<l-1; i++)
