@@ -5,33 +5,38 @@
 using namespace std;
 
 bool BusquedaBinaria(int vec[], int n, int &valor);
+bool BusquedaBinariaR(int vec[],int n,int &valor,int inicio,int final);
 bool BusquedaBloques(int vec[], int n, int &valor);
 void shell2(int vec[],int n);
 
 
 int main(){
 	
+	int n=100;
 	
-	int a=500000;
-	
-	int valor = 4568;
+	int valor = 50;
 	
 	srand(time(NULL));
-	int vec[a];
+	int vec[n];
 		
-	for(int i=0;i<a;i++) vec[i]=rand()%a+1;
+	for(int i=0;i<n;i++) vec[i]=rand()%a+1;
 	
 	shell2(vec,a);
 	
-	
-	if(BusquedaBinaria(vec,a,valor)){
+	//BusquedaBinariaClasica---------
+	/*if(BusquedaBinaria(vec,a,valor)){
 		cout << "Numero encontrado en: [" << valor << "]" <<endl;
 	}else{
 		cout << "Numero no encontrado en el array" << endl;
-	}
+	}*/
+	//BusquedaBinariaClasica---------
 	
-//	cout <<valor;
-	
+	//BusquedaBinariaRecursiva-------
+	if(BusquedaBinariaR(vec,a,valor,0,a-1)){
+		cout << "Encontrado en: " << valor << endl;
+	}else cout << "No Encontrado";
+	//BusquedaBinariaRecursiva--------
+
 	return 0;
 }
 
@@ -51,6 +56,26 @@ bool BusquedaBinaria(int vec[], int n, int &valor){
 	}
 	return false;
 
+}
+bool BusquedaBinariaR(int vec[],int n,int &valor,int inicio,int final){
+
+	int mitad=(inicio+final)/2;
+	
+	if(inicio<=final){
+		if(vec[mitad]==valor){
+			valor=mitad;
+			return true;
+		}
+		if(vec[mitad]>valor){
+			final = mitad-1;
+			BusquedaBinariaR(vec,n,valor,inicio,final);
+		}
+		if(vec[mitad]<valor){
+			inicio = mitad+1;	
+			BusquedaBinariaR(vec,n,valor,inicio,final);
+		}	
+	}else return false;
+	
 }
 void shell2(int vec[],int n){
 	bool band;
