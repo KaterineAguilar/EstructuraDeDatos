@@ -10,7 +10,7 @@ int **M;
 
 int main(int argc, char** argv) {
 	
-	int array[]= {5,7,5,1,10000,5,328,168,218};
+	int array[]= {25,7,51,1,9999,5,328,168,218};
 
 	int n = sizeof(array)/sizeof(int);
 	int fil=n,col=10;
@@ -63,7 +63,7 @@ void RadixSort(int vec[],int n,int fil,int col){
 				vecAux[centenas]++;
 			}
 			if(cont==3){
-				M[vecAux[millares]-1][millares] = vec[i];
+				M[vecAux[millares]][millares] = vec[i];
 				vecAux[millares]++;
 			}
 			
