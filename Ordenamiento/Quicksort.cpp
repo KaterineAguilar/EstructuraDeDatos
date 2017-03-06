@@ -1,69 +1,92 @@
 #include <iostream>
+#include <time.h>
+#include <stdlib.h>
 #define sufpeq 5
 using namespace std;
 
-int pivote(int v[],int n);
-void Quicksort(int v[], int n);
-void Bubble(int v[],int n);
-void show(int v[],int n);
+int pivote(int v[], int start, int end);
+void Quicksort(int v[], int start, int end);
+void Bubble(int v[], int n);
+void show(int v[], int n);
 
-int main(int args, char** argv){
+int main(int args, char** argv) {
 	
-	int v[]={13,9,15,17,11,7,16,14,8,2};
-	int n=sizeof(v)/sizeof(int);
+	srand(time(NULL));
 	
-	Quicksort(v,n);
-//	pivote(v,n);
-	show(v,n);
+	int n = 25;
+	int v[n];
+	for(int i = 0;i < n; i++) v[i] = rand()%100+1;
+	
+	show(v, n);
+	Quicksort(v, 0, n-1);
+	show(v, n);
 	
 	return 0;
 }
 
-int pivote(int v[],int n){
-	int pivo=v[0], aux;
-	int i=1;
-	int j=n-1;
-	while(i<j){
-		while(v[i]<pivo&&i<n) i++;
-		while(v[j]>pivo) j--;			
-		if(i<j){
-			aux=v[i];
-			v[i]=v[j];
-			v[j]=aux;
-			i++; j--;
-		}
-//		show(v,n);
+int pivote(int v[], int start, int end) {
+	int pivo;
+	int left;
+	int right;
+	int aux;
+	
+	pivo = v[start];
+	left = start;
+	right = end;
+	
+	while(left < right) {
+		while((v[left] <= pivo) && (left < right)){
+			left++;	
+		} 
+		
+		while(v[right] > pivo) {
+			right--;	
+		} 
+		
+		if(left < right) {
+			aux = v[left];
+			v[left] = v[right];
+			v[right] = aux;
+			left++; right--;
+		}	
+		
 	}
-	v[0]=v[j];
-	v[j]=pivo;
-	return j;
+	
+	aux = v[right];
+	v[right] = v[start];
+	v[start] = aux;
+	
+	return right;
 }
-void Quicksort(int v[], int n){
+void Quicksort(int v[], int start, int end){
 	int pospiv;
 	
-	if(n<=sufpeq) Bubble(v,n);
-	else{
-		pospiv = pivote(v,n);
-		Quicksort(v,pospiv);
-		Quicksort(&v[pospiv-1],n-pospiv); //REVISAR ACA
-	}	
+	if(end <= sufpeq) {
+		Bubble(v, end);
+	} else if(start < end) {
+		pospiv = pivote(v, start, end);
+		Quicksort(v, start, pospiv-1);
+		Quicksort(v, pospiv+1, end);
+			
+	}
+	
 }
-void Bubble(int v[],int n){
+void Bubble(int v[], int n) {
 	int temp;
 
-	for (int i=0; i<n; i++){
-		for (int j=0 ; j<n-1; j++){
-			if (v[j] > v[j+1]){
+	for (int i = 0; i < n; i++) {
+		for (int j = 0 ; j < n-1; j++) {
+			if (v[j] > v[j+1]) {
 				temp = v[j];
 				v[j] = v[j+1];
 				v[j+1] = temp;	
 			}	
 		}		
 	}	
-		show(v,n);
+//		show(v,n);
 }
-void show(int v[],int n){
-	for(int i=0;i<n;i++) cout << v[i] << " ";
-	cout << endl;
+void show(int v[], int n) {
+	for(int i = 0;i < n; i++) cout << v[i] << " ";
+	cout << endl << endl;
 	
 }
