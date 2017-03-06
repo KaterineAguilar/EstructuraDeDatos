@@ -23,7 +23,7 @@ int main(){
 void Merge(int v[], int n) {
 	int *p1, *p2;
 	
-	if (n <= sufpeq) shakerSort(v, n);
+	if (n <= sufpeq) ShakerSort(v, n);
 	else {
 		p1 = new int[n/2];
 		p2 = new int[n-n/2];
