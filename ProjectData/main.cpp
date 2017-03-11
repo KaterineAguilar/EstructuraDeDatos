@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
 	cout << "_: ";
 	cin >> sort;
 	
-	setData("data.dat", personas, id, name, lastName);
+	setData("data2.dat", personas, id, name, lastName);
 	writeData(sort,"salida.txt",personas, id, name, lastName);
 	
 	cout << "Archivo generado" <<endl;
@@ -43,24 +43,24 @@ void writeData(int sort, string path, vector <Personas*> &p, vector <int> &id, v
 		shell(id,id.size(),name,lastName);
 		for(int i = 0;i < id.size(); i++){
 			file << id[i] << " " << lastName[i] << " " << name[i] << endl;
-			p.push_back(new Personas(id[i],name[i],lastName[i]));
+//			p.push_back(new Personas(id[i],name[i],lastName[i]));
 		} 
 	} 
 	if(sort == 2){
 		strings(name,name.size(),id,lastName);
 		for(int i = 0;i < name.size(); i++){
 			file << name[i] << " " << lastName[i] << " " << id[i] << endl;
-			p.push_back(new Personas(id[i],name[i],lastName[i]));
+//			p.push_back(new Personas(id[i],name[i],lastName[i]));
 		} 
 	}
 	if(sort == 3){
 		strings(lastName,lastName.size(),id,name);
 		for(int i = 0;i < lastName.size(); i++){
 			file << lastName[i] << " " << name[i] << " " << id[i] << endl;
-			p.push_back(new Personas(id[i],name[i],lastName[i]));
+//			p.push_back(new Personas(id[i],name[i],lastName[i]));
 		} 
 	}
-	
+		
 }
 
 void setData(string path, vector <Personas*> &p, vector <int> &id, vector <string> &name, vector <string> &lastName) {
@@ -73,13 +73,13 @@ void setData(string path, vector <Personas*> &p, vector <int> &id, vector <strin
 	
 	while(getline(file,line)){
 		
-		split = strtok(&line[0], "	");
+		split = strtok(&line[0], "	 ");
 		int cont = 0;
 		while(split != NULL) {	
 			if(cont==0) id.push_back(atoi(split));
 			if(cont==1) lastName.push_back(string(split));
 			if(cont==2) name.push_back(string(split));
-	    	split = strtok (NULL, "	");
+	    	split = strtok (NULL, "	 ");
 	    	cont++;
 		}
 	}
