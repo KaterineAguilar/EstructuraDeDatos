@@ -19,12 +19,12 @@ int main(){
 	srand(time(NULL));
 	int vec[n];
 		
-	for(int i=0;i<n;i++) vec[i]=rand()%a+1;
+	for(int i=0;i<n;i++) vec[i]=rand()%500+1;
 	
-	shell2(vec,a);
+	shell2(vec, n);
 	
 	//BusquedaBinariaClasica---------
-	/*if(BusquedaBinaria(vec,a,valor)){
+	/*if(BusquedaBinaria(vec, n, valor)){
 		cout << "Numero encontrado en: [" << valor << "]" <<endl;
 	}else{
 		cout << "Numero no encontrado en el array" << endl;
@@ -32,7 +32,7 @@ int main(){
 	//BusquedaBinariaClasica---------
 	
 	//BusquedaBinariaRecursiva-------
-	if(BusquedaBinariaR(vec,a,valor,0,a-1)){
+	if(BusquedaBinariaR(vec, n,valor,0,500-1)){
 		cout << "Encontrado en: " << valor << endl;
 	}else cout << "No Encontrado";
 	//BusquedaBinariaRecursiva--------
