@@ -9,9 +9,9 @@ void swapName(vector <string> &name, int i, int k){
 void swapLastName(vector <string> &lastName, int i, int k){
 	string aux;
 	
-	aux = lastName[k];
-	lastName[k] = lastName[i];
-	lastName[i] = aux;
+	aux = lastName[i];
+	lastName[i] = lastName[k];
+	lastName[k] = aux;
 }
 void swapId(vector <int> &id, int i, int k){
 	int aux;
@@ -29,14 +29,14 @@ void shell(vector <int> &vec, int n, vector <string> &name, vector <string> &las
 	
 	while(incre > 0){
 		band = false;
-		for(int i = 0;i+incre < n;i++){
+		for(int i = 0; i+incre < n; i++){
 			if(vec[i] > vec[i+incre]){
 				aux = vec[i];
 				vec[i] = vec[i+incre];
 				vec[i+incre] = aux;
 				band = true;
-				swapName(name,i,incre);
-				swapLastName(lastName,i,incre);
+				swapName(name,i,i+incre);
+				swapLastName(lastName,i,i+incre);
 			}
 		}
 		if(!band) incre/=2;
@@ -45,7 +45,7 @@ void shell(vector <int> &vec, int n, vector <string> &name, vector <string> &las
 
 void strings(vector <string> &vec, int n, vector <int> &id, vector <string> &lastName){
 	
-	char nombre[300][100];
+	char nombre[10000][120];
     char aux[120];
 
     int i,j,k;
