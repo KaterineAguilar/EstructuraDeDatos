@@ -26,9 +26,7 @@ int main(int argc, char** argv)
 	for(int i = 0; i < nData; i++) dAlfa[i] = getDataA(data[i], nData);
 	for(int i = 0; i < nData; i++) dNum[i] = getDataN(data[i], nData);
 	shell(dNum,dAlfa,nData);
-//	for(int i = 0; i < nData; i++) cout << dAlfa[i] << " " << dNum[i] <<endl;
-	
-	cout <<endl<< "Clave NUMERICA a Buscar?: ";
+	for(int i = 0; i < nData; i++) cout << dAlfa[i] << " " << dNum[i] <<endl;	cout <<endl<< "Clave NUMERICA a Buscar?: ";
 	cin >> key;
 	int pos = -1;
 	pos = BusquedaBinaria(dNum,nData,key);

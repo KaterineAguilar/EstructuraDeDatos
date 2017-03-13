@@ -36,7 +36,7 @@ void RadixSort(int vec[],int n,int fil,int col){
 		m1++;
 	}
 	
-	int vecAux[col] = {0,0,0,0,0,0,0,0,0,0};
+	int vecAux[col];
 
 	int millares,centenas,decenas,unidades;
 	
