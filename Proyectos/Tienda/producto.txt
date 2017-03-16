@@ -1,7 +1,8 @@
-1000041 Mantequilla 3200
-1018467 Harina Pan 2800
-1006334 Salsa-de-tomate 2000
-1026500 Cafe 1700
-1019169 Azucar 3200
-1015724 Crema-de-dientes 1900
-1011478 Leche-en-Polvo 5400
+1000041,Mantequilla,3200
+1018467,Harina Pan,2800
+1006334,Salsa de tomate,2000
+1026500,Cafe,1700
+1019167,Azucar,3200
+1015724,Crema de dientes,1900
+1011478,Leche en Polvo,5400
+1019169,Refresco,8000.50

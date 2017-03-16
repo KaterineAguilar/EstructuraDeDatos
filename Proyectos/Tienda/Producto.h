@@ -8,13 +8,13 @@ class Producto
 {
 	int Code;
 	string Desc;
-	int Price;
+	float Price;
 	
 	public:
-		Producto(int _Code, string _Desc, int _Price);
+		Producto(int _Code, string _Desc, float _Price);
 		int getCode();
 		string getDesc();
-		int getPrice();
+		float getPrice();
 	
 };
 

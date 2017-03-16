@@ -1,6 +1,6 @@
 #include "Producto.h"
 
-Producto::Producto(int _Code, string _Desc, int _Price)
+Producto::Producto(int _Code, string _Desc, float _Price)
 {
 	Code = _Code;
 	Desc = _Desc;
@@ -17,7 +17,7 @@ string Producto::getDesc()
 	return Desc;
 }
 
-int Producto::getPrice()
+float Producto::getPrice()
 {
 	return Price;
 }

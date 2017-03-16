@@ -7,13 +7,17 @@ using namespace std;
 class Cliente
 {
 	int ID;
-	int nPhone;
+ 	long long int nPhone;
 	string name;
 	public:
-		Cliente(int _ID, string _name, int _nPhone);
+		Cliente();
+		Cliente(int _ID, string _name, long long int _nPhone);
+		void setID(int _ID);
+		void setName(string _Name);
+		void setNPhone(long long int _nPhone);
 		int getID();
 		string getName();
-		string getNphone();
+		long long int getNphone();
 	
 };
 

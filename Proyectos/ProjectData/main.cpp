@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
 	cout << "_: ";
 	cin >> sort;
 	
-	setData("data2.dat", personas, id, name, lastName);
+	setData("data.dat", personas, id, name, lastName);
 	writeData(sort,"salida.txt",personas, id, name, lastName);
 	
 	cout << "Archivo generado" <<endl;

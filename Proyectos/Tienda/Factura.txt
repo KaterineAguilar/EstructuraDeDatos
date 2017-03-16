@@ -1,0 +1,8 @@
+*********** Factura ***********
+
+PEDRO LABRADOR 4126526748
+
+Cafe 1700
+Leche en Polvo 5400
+-------------------------------
+Monto Total: 7100
