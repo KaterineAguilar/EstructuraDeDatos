@@ -57,9 +57,13 @@ int main(int argc, char** argv)
 		else {
 			nFil[pos]++;
 			BankCards[nFil[pos]][pos] = data[i];
-//			colision++;
+			colision++;
 		}
 	}
+	
+	cout << "Colisiones anteriores: " << (colision * 100)/n << "%" << endl;
+	cout << "Colisiones resueltas por el metodo de Arreglos anidados" << endl << endl;
+	
 	//BUSCANDO NUMERO reinicializo el vector auxiliar nFil = 0 
 	for (int i = 0; i < 100; i++) 
 		nFil[i] = 0;
@@ -69,7 +73,7 @@ int main(int argc, char** argv)
 	buscar(TDC, BankCards, nFil, 0, max);
 	
 
-//	cout << "colision: " << (colision * 100)/n << "%" << endl;
+	
 
 //	for (int i = 0; i < 3; i++) {								//IMPRIMIR DATOS GUARDADOS CON HASH
 //		for (int j = 0; j < 100; j++)
