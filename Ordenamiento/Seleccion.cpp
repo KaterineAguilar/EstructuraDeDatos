@@ -13,7 +13,7 @@ int main (int argc, char** argv)
 	return 0;
 }
 
-void selection_sort(int vector[],int size)
+void selection_sort(int vector[], int size)
 {
 	int a,b,heavy,position=0,flag=0;
 	size--;
