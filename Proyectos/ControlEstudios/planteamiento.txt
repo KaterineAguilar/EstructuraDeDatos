@@ -1,0 +1,13 @@
+BÚSQUEDA CONSOLIDADA O CON VARIOS ARCHIVOS BINARIOS MULTIFUNCIONALES
+
+Se tienen 3 archivos binarios: 
+- Datos.dat: contiene un entero (cédula) y una cadena de 30 caracteres para el nombre del estudiante.
+- Materia.dat: contiene un entero (código) y una cadena de 80 caracteres (nombre de la materia) y el número de unidades crédito.
+- Inscritos.dat: contiene cédula del estudiante y código de asignatura.
+
+Se pide mostrar en pantalla:
+a) listado de alumnos inscritos en cada asignatura ( de menor a mayor código)
+b) porcentaje de alumnos inscritos en todas las asignaturas.
+c) asignatura con máxima y mínima isncripción
+d) promedio de alumnos por asignatura.
+e) Dada la cédula de un estudiante mostrar sus datos personales y de inscripción. Totalizar las UC inscritas.
