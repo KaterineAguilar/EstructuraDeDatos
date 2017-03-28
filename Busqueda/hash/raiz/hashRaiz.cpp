@@ -165,6 +165,6 @@ inline string to_string(int x)
 		l.push_back(x%10 + '0');
 		x/=10;
 	}
-	reverse(l.begin(),l.end());
+	reverse(l.begin(), l.end());
 	return l;
 }
