@@ -1,0 +1,30 @@
+Archivo de Cientes:
+11500666,  Carlos Martinez,
+11522069,  Leonarl Mora,
+12500666,  Carmen Marin,
+13000111,  Maria Diaz,
+13500666,  Julia Vega,
+14110666,  Graciela Ferreira,
+14500612,  Pedro Torrez,
+17444666,  Pedro Pepe,
+19567987,  Julio Cesar Trejo,
+
+
+Archivo de Empresas:
+466, Tienda de Mascotas, 9, 12, 14, 15,
+111, Taller de pintura Tecpic, 7, 12, 12, 14,
+679,  Centro de Estetica Healt, 8, 12, 14, 16,
+150,  Estilita OPeter Bob, 9, 12, 14, 16,
+
+
+Archivo de Citas:
+466,  19567987, 12-03-2017, 9
+111,  19567987, 12-03-2017, 15
+679,  19567987, 16-03-2017, 11
+150,  19567987, 16-03-2017, 14
+111,  13500666, 16-03-2017, 14
+150,  12500666, 12-03-2017, 10
+111,  12500666, 15-03-2017, 8
+111,  14500612, 16-03-2017, 8
+150,  17444666, 16-03-2017, 11
+150,  11522069, 12-03-2017, 9

@@ -1,0 +1,4 @@
+466, Tienda de Mascotas, 9, 12, 14, 15,
+111, Taller de pintura Tecpic, 7, 12, 12, 14,
+679,  Centro de Estetica Healt, 8, 12, 14, 16,
+150,  Estilita OPeter Bob, 9, 12, 14, 16,

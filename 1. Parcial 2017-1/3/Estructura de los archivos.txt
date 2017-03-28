@@ -1,0 +1,17 @@
+Cliente.dat
+int ced;
+char nom[30];
+
+Empresa.dat
+int id;
+char nom[60];
+int  hora_am1, hora_am2;    // Horario de la mañana
+int  hora_pm1, hora_pm2;    // Horario de la tarde
+
+Citas.dat
+int id;
+int ced;
+char fecha[14];
+int hora;
+
+
