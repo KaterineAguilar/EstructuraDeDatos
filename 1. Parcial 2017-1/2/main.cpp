@@ -9,7 +9,7 @@ using namespace std;
 
 void inf(string path, vector<int> &vector);
 void show(int data[], int size);
-bool rColsion(int data[], int num);
+bool rColsion(int data[], int num, int &ite);
 int hashPlegamiento(int num);
 inline int to_inverse(int x);
 
@@ -34,17 +34,24 @@ int main(int argc, char** argv) {
 			colision++;
 		}
 	}
+	show(data,100);
+	
 	cout << "colision " << (colision*100)/Numeros.size() << "%" << endl << endl;
-	cout << "Colisiones resueltas.." << endl;
+	
 	colision = 0;
+	int ite = 0;
 	for(int i = 0; i< tamData; i++) {
 		int pos = hashPlegamiento(Numeros[i]);
 		if(!data[pos] == -1){
-			rColsion(data, Numeros[i]);
+			while(!rColsion(data, Numeros[i], ite)){
+				rColsion(data, Numeros[i], ite);
+			}
 			colision++;
 		}
 			
 	}
+	show(data,100);
+	cout << "Colisiones resueltas.." << endl;
 	cout << "colision " << (colision*100)/Numeros.size() << "%" << endl << endl;
 	
 	
@@ -58,27 +65,26 @@ int main(int argc, char** argv) {
 	return 0;
 }
 
-bool rColsion(int data[], int num)
+bool rColsion(int data[], int num, int &ite)
 {
+	ite++;
 	int pos = hashPlegamiento(num);
-	int ite = 1;
 	int valor = 0;
 	
-	while(true){
-		
-		pos += pow(ite,2);
-		if(pos > 100) {
-			pos -= 100;
-			ite = 1;
-		}
-			
-		if(data[pos] == -1) {
-			data[pos] = num;
-			break;
-		}
-		else ite++;
-	}
+	pos += pow(ite,2);
+	if (pos > 99) 
+		pos -= 100;
 	
+	if (ite > 99) 
+		ite = 1;
+
+	if(data[pos] == -1) {
+		data[pos] = num;
+		
+		return true;
+	}
+	cout << " asd"<< data[pos] << " " << ite; 
+	return false;
 }
 
 int hashPlegamiento(int num)
@@ -119,4 +125,7 @@ void show(int data[], int size)
 	for ( int i = 0 ; i < size; i++)
 		if(data[i]!=-1)
 			cout << "[" << i+1 << "]" <<  data[i] << " ";
+		else
+			cout << " ";
+	cout << endl << endl;
 }
