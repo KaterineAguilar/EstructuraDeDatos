@@ -42,21 +42,21 @@ void writeData(int sort, string path, vector <Personas*> &p, vector <int> &id, v
 	if(sort == 1){
 		shell(id,id.size(),name,lastName);
 		for(int i = 0;i < id.size(); i++){
-			file << id[i] << " " << lastName[i] << " " << name[i] << endl;
+			file << id[i] << "	" << lastName[i] << "	" << name[i] << endl;
 //			p.push_back(new Personas(id[i],name[i],lastName[i]));
 		} 
 	} 
 	if(sort == 2){
 		strings(name,name.size(),id,lastName);
 		for(int i = 0;i < name.size(); i++){
-			file << name[i] << " " << lastName[i] << " " << id[i] << endl;
+			file << name[i] << "	" << lastName[i] << "	" << id[i] << endl;
 //			p.push_back(new Personas(id[i],name[i],lastName[i]));
 		} 
 	}
 	if(sort == 3){
 		strings(lastName,lastName.size(),id,name);
 		for(int i = 0;i < lastName.size(); i++){
-			file << lastName[i] << " " << name[i] << " " << id[i] << endl;
+			file << lastName[i] << "	" << name[i] << "	" << id[i] << endl;
 //			p.push_back(new Personas(id[i],name[i],lastName[i]));
 		} 
 	}
