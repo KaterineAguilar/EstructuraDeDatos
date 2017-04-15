@@ -52,27 +52,19 @@ template<class T>
 void Pilas_dinamicas<T>::Push(T v)
 {
    Nodo<T> *nuevo;
-
-   /* Crear un nodo nuevo */
    nuevo = new Nodo<T>(v, ultimo);
-   /* Ahora, el comienzo de nuestra pila es en nuevo nodo */
    ultimo = nuevo;
 }
 
 template<class T>
 T Pilas_dinamicas<T>::Pop()
 {
-    Nodo<T> *_Nodo; /* variable auxiliar para manipular nodo */
-    T v;      /* variable auxiliar para retorno */
-
-    if(!ultimo) return 0; /* Si no hay nodos en la pila retornamos 0 */
-    /* Nodo apunta al primer elemento de la pila */
+    Nodo<T> *_Nodo;
+    T v;
+    if(!ultimo) return 0;
     _Nodo = ultimo;
-    /* Asignamos a pila toda la pila menos el primer elemento */
     ultimo = _Nodo->siguiente;
-    /* Guardamos el valor de retorno */
     v = _Nodo->valor;
-    /* Borrar el nodo */
     delete _Nodo;
     return v;
 }
@@ -82,14 +74,11 @@ void Pilas_dinamicas<T>::Imprimir(){
 	
 	Nodo<T> *p = ultimo;
 	
-	while(p){// SIGNIFICA QUE IMPRIME SOLO SI HAY VALOR AHI 
-		
+	while(p){
 		cout<<p->get_info()<<" ";
 		p=p->get_sig();
 	}
-	
 	if(!p){
-		
 	//	cout<<"-Papelera Vacia"<<endl;
 	}
 }

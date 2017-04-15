@@ -40,32 +40,22 @@ template<class T>
 void Colas_dinamicas<T>::Anadir(T v)
 {
    nodo<T> *nuevo;
-   /* Crear un nodo nuevo */
-   /* Este será el último nodo, no debe tener siguiente */
    nuevo = new nodo<T>(v);
-   /* Si la cola no estaba vacía, añadimos el nuevo a continuación de ultimo */
    if(ultimo) ultimo->siguiente = nuevo;
-   /* Ahora, el último elemento de la cola es el nuevo nodo */
    ultimo = nuevo;
-   /* Si primero es NULL, la cola estaba vacía, ahora primero apuntará también al nuevo nodo */
    if(!primero) primero = nuevo;
 }
 
 template<class T>
 T Colas_dinamicas<T>::Leer()
 {
-   nodo<T> *Nodo; /* variable auxiliar para manipular nodo */
-   T v;      /* variable auxiliar para retorno */
-   /* Nodo apunta al primer elemento de la pila */
+   nodo<T> *Nodo;
+   T v;
    Nodo = primero;
-   if(!Nodo) return 0; /* Si no hay nodos en la pila retornamos 0 */
-   /* Asignamos a primero la dirección del segundo nodo */
+   if(!Nodo) return 0;
    primero = Nodo->siguiente;
-   /* Guardamos el valor de retorno */
    v = Nodo->valor;
-   /* Borrar el nodo */
    delete Nodo;
-   /* Si la cola quedó vacía, ultimo debe ser NULL también*/
    if(!primero) ultimo = NULL;
    return v;
 }

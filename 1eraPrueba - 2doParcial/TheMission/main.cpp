@@ -31,6 +31,7 @@ int main(int argc, char** argv) {
 	Jugador **jugadores;
 	
 	srand(time(NULL));
+	
 	generarTablero("tablero.txt", tablero, tamTablero, fil, col);
 	Pilas_dinamicas <int> casillas[tamTablero];
 	iniciarPartida(jugadores, cantJugadores, col, tablero, tamTablero, turnos, casillas);
