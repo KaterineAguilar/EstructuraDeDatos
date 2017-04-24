@@ -215,12 +215,12 @@ int ListaEnlazada<T>::Anadir(T valor)
 		return 0;
 	Anterior = NULL;
 	while(p) {
-//		if(Nuevo->getValor() < p->getValor()) //sobrecargar V:
-//			break;
-//		else {
+		if(Nuevo->getValor() < p->getValor()) //sobrecargar V:
+			break;
+		else {
 			Anterior = p;
 			p = p->getSiguiente();
-//		}
+		}
 	}
 	if(p == inicio) {
 		Nuevo->setSiguiente(inicio);
