@@ -103,28 +103,29 @@ void ListaDobEnlazada<T>::Eliminar(T &v)
 	Primero();
 	pNodo = plista;
 	while(!(pNodo->valor==v) && pNodo){
+		//cout<<"entro"<<endl;
 		Siguiente();
 		pNodo=plista;
 	}
 	Primero();
 	if(pNodo==plista){
-		if (pNodo->siguiente==NULL){
+		if(pNodo->siguiente==NULL){
 			plista=NULL;
-		} else {
-			cout<<"eliminar primero"<<endl;
-			aux=plista;
-			plista=pNodo->siguiente;
-			plista->anterior=NULL;
-			delete aux;
-		}
+		}else{
+		cout<<"eliminar primero"<<endl;
+		aux=plista;
+		plista=pNodo->siguiente;
+		plista->anterior=NULL;
+		delete aux;
+	}
 	}else{
 		Ultimo();
-		if (pNodo==plista){
+		if(pNodo==plista){
 			cout<<"eliminar ultimo"<<endl;
 			pNodo->anterior->siguiente=NULL;
 			aux=pNodo;
 			delete aux;
-		} else {
+		}else{
 			cout<<"es uno intermedio"<<endl;
 			pNodo->anterior->siguiente=pNodo->siguiente;
 			pNodo->siguiente->anterior=pNodo->anterior;
@@ -133,6 +134,30 @@ void ListaDobEnlazada<T>::Eliminar(T &v)
 		}
 	}
 	
+	
+//	
+//	while(pNodo && pNodo->valor < v) 
+//		pNodo = pNodo->siguiente;
+//	while(pNodo && pNodo->valor > v) 
+//		pNodo = pNodo->anterior;
+//	if(!pNodo || pNodo->valor != v) 
+//		return;
+//	if(pNodo->anterior)
+//		pNodo->anterior->siguiente = pNodo->siguiente;
+//	if(pNodo->siguiente)
+//		pNodo->siguiente->anterior = pNodo->anterior;
+//		v=pNodo->valor;
+//	
+//	Ultimo();
+//	pNodo = plista;
+//	if(pNodo->valor==v) {
+//	cout<<"eliminando el ultimo"<<endl;
+//		pNodo->anterior=NULL;
+//	}
+//	Primero();
+//	pNodo = plista;
+//	if(pNodo->valor==v)
+//		plista=pNodo->siguiente;
 }
 
 template<class T>
@@ -144,7 +169,7 @@ void ListaDobEnlazada<T>::Imprimir(int orden)
 		pNodo = plista;
 		if(!pNodo)cout<<"lista doble vacia"<<endl;
 		while(pNodo) {
-			cout << pNodo->valor << " ";
+			cout << pNodo->valor;
 			pNodo = pNodo->siguiente;
 		}
 	} else {
@@ -152,7 +177,7 @@ void ListaDobEnlazada<T>::Imprimir(int orden)
 		pNodo = plista;
 		if(!pNodo)cout<<"lista doble vacia"<<endl;
 		while(pNodo) {
-			cout << pNodo->valor << " ";
+			cout << pNodo->valor;
 			pNodo = pNodo->anterior;
 		}
 	}

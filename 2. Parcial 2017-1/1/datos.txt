@@ -1,0 +1,3 @@
+hola,pelota,isla,casa
+9,5,4,8,7,2
+k,j,u,y,b,v,p

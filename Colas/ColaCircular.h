@@ -1,7 +1,6 @@
 #ifndef COLACIRCULAR_H
 #define COLACIRCULAR_H
 #include <iostream>
-
 using namespace std;
 
 template <class T>
@@ -31,11 +30,11 @@ template <class T>
 void ColaCircular<T>::Anadir(T v)
 {
 	int vfinal = (final + 1) % size;
-	
+
 	if (!isLLena()) {
 		if (inicio == -1)
 			inicio = 0;
-	
+
 		p[vfinal] = v;
 		final = vfinal;
 	}
@@ -49,9 +48,9 @@ T ColaCircular<T>::Leer()
 		v = p[inicio];
 		if (inicio == final)
 			inicio = final = -1;
-		else 
+		else
 			inicio = (inicio + 1) % size;
-		return v;	
+		return v;
 	}
 }
 
@@ -66,7 +65,7 @@ void ColaCircular<T>::sort()
             p[j] = temp;
         }
     }
-}		
+}
 
 template <class T>
 bool ColaCircular<T>::isLLena()

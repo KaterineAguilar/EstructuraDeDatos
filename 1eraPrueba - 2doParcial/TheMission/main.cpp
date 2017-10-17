@@ -20,18 +20,18 @@ void color(int c);
 int dado();
 
 int main(int argc, char** argv) {
-	
+
 	Colas_dinamicas <Jugador*> turnos;
-	
-	
+
+
 	int *tablero;
 	int fil, col;
 	int tamTablero;
 	int cantJugadores;
 	Jugador **jugadores;
-	
+
 	srand(time(NULL));
-	
+
 	generarTablero("tablero.txt", tablero, tamTablero, fil, col);
 	Pilas_dinamicas <int> casillas[tamTablero];
 	iniciarPartida(jugadores, cantJugadores, col, tablero, tamTablero, turnos, casillas);
@@ -45,16 +45,16 @@ int main(int argc, char** argv) {
 		if(jugadores[i]->getPuntaje() > mayor->getPuntaje())
 			mayor = jugadores[i];
 	}
-	
-		
-	cout << endl << endl;		
+
+
+	cout << endl << endl;
 	color(mayor->getColor());
 	cout << "!!!1GANADOR!!! ";
 	mayor->informacion();
 	color(7);
-	
-	
-	
+
+
+
 	return 0;
 }
 
@@ -62,10 +62,10 @@ void iniciarPartida(Jugador **&jugadores, int &cantJugadores, int col, int *tabl
 {
 	do{
 		cout << "Cantidad de Jugadores?: ";
-		cin >> cantJugadores;	
-		
+		cin >> cantJugadores;
+
 	}while(cantJugadores<1);
-	
+
 	jugadores = new Jugador*[cantJugadores];
 	int _color = 2;
 	for(int i = 0; i < cantJugadores; i++) {
@@ -78,7 +78,7 @@ void iniciarPartida(Jugador **&jugadores, int &cantJugadores, int col, int *tabl
 		jugadores[i] = new Jugador(linea,0,0, turno, _color++);
 		system("cls");
 	}
-	
+
 	//ORDENANDO POR TURNOS CON BURBUJA JAJA
 	Jugador *temp;
 	for(int i = 0; i < cantJugadores; i++){
@@ -86,9 +86,9 @@ void iniciarPartida(Jugador **&jugadores, int &cantJugadores, int col, int *tabl
 			if(jugadores[j]->getTurno() < jugadores[j+1]->getTurno()){
 				temp = jugadores[j];
 				jugadores[j] = jugadores[j+1];
-				jugadores[j+1] = temp;	
-			}	
-		}		
+				jugadores[j+1] = temp;
+			}
+		}
 	}
 	//ORDENANDO POR TURNOS CON BURBUJA JAJA
 	//CREANDO PILA PARA CADA POSICION DEL TABLERO
@@ -98,7 +98,7 @@ void iniciarPartida(Jugador **&jugadores, int &cantJugadores, int col, int *tabl
 		else
 			casillas[i].Push(0);
 	}
-	//CREANDO PILA PARA CADA POSICION DEL TABLERO	
+	//CREANDO PILA PARA CADA POSICION DEL TABLERO
 	//AÑADIENDO A LA COLA DE TURNOS A LOS JUGADORES
 	for(int i = 0; i < cantJugadores; i++){
 		color(7);
@@ -107,7 +107,7 @@ void iniciarPartida(Jugador **&jugadores, int &cantJugadores, int col, int *tabl
 		cout << "Turno " << i+1 << ": " << jugadores[i]->getNombre() << endl;
 	}
 	color(7);
-	//AÑADIENDO A LA COLA DE TURNOS A LOS JUGADORES	
+	//AÑADIENDO A LA COLA DE TURNOS A LOS JUGADORES
 	//PARA COMPROBAR QUE EL MAPA Y LAS PILAS ESTEN CORRECTAS//
 //	for(int i = 0; i < tamTablero; i++) {
 //		cout << tablero[i] << " ";
@@ -117,7 +117,7 @@ void iniciarPartida(Jugador **&jugadores, int &cantJugadores, int col, int *tabl
 //		casillas[i].Imprimir();
 //	}
 	//PARA COMPROBAR QUE EL MAPA Y LAS PILAS ESTEN CORRECTAS//
-	
+
 	Jugador *JugadorEnTurno;
 	int cont = 0;
 	bool game = true, help = false;
@@ -153,17 +153,17 @@ void iniciarPartida(Jugador **&jugadores, int &cantJugadores, int col, int *tabl
 						JugadorEnTurno->anadirPuntaje(valor1);
 						JugadorEnTurno->incPuntaje(valor1);
 					}
-					
+
 				}
 			}
-			
+
 			for(int i = 0; i < cantJugadores; i++)
-				if(jugadores[i]->getNombre() == JugadorEnTurno->getNombre()) 
+				if(jugadores[i]->getNombre() == JugadorEnTurno->getNombre())
 					if(JugadorEnTurno->getPosicion()==tamTablero)
 						cont++;
 			if(cont == cantJugadores) game=false;
 			if(emergencyiterator == tamTablero*cantJugadores) game = false;
-			
+
 			cout << "**************************************" << endl;
 			color(JugadorEnTurno->getColor());
 			JugadorEnTurno->informacion();
@@ -177,7 +177,7 @@ void iniciarPartida(Jugador **&jugadores, int &cantJugadores, int col, int *tabl
 	Jugador *aux;
 	for(int i = 0; i < cantJugadores; i++) {
 		aux = turnos.Leer();
-		for(int j = 0; j < cantJugadores; j++) 
+		for(int j = 0; j < cantJugadores; j++)
 			if(jugadores[j]->getNombre() == aux->getNombre())
 				jugadores[j] = aux;
 	}
@@ -189,8 +189,8 @@ void generarTablero(string path, int *&tablero, int &tam, int &fil, int &col)
 	arch.open(path.c_str(),ios::in);
 	string linea;
 	char *split;
-	
-	if(arch.fail()) 
+
+	if(arch.fail())
 		cout << "Error al abrir el archivo " << path << endl;
 	else {
 		getline(arch,linea);
@@ -213,7 +213,7 @@ void generarTablero(string path, int *&tablero, int &tam, int &fil, int &col)
 			}
 		}
 		int a = 0;
-		for (int i = 0; i < tam; i++) 
+		for (int i = 0; i < tam; i++)
 			tablero[i] = pil.Pop();
 
 	}
@@ -235,7 +235,7 @@ void mostrarTablero(int *tablero, int tamTablero, int col, Jugador *jugador, int
 			cout << endl;
 			salto = 0;
 		}
-		if(tamTablero - c  == jugador->getPosicion()-1)		
+		if(tamTablero - c  == jugador->getPosicion()-1)
 			color(jugador->getColor());
 		else if(jugador->getPosicion() == tamTablero)
 			color(jugador->getColor());
@@ -243,9 +243,9 @@ void mostrarTablero(int *tablero, int tamTablero, int col, Jugador *jugador, int
 			color(jugador->getColor());
 		else
 			color(7);
-			
 
-				
+
+
 		cout << tablero[i] << "\t";
 		salto++;
 		c++;

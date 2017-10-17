@@ -1,0 +1,9 @@
+3001, camisa, 16500, 10
+4001, Gabinete de pared, 68000, 15
+2001, Casa de Barbie, 95000, 18
+1001, Sabana matrimonial, 25600, 12
+4002, Comedor de 4P, 135000, 9
+3002, vestido de algodon, 45000, 2
+1002, Toalla playera, 13600, 7
+2002, Carro de pilas, 22900, 22
+3003, pantalon blue jean, 24600, 1

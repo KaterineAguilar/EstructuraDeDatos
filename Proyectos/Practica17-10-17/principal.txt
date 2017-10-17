@@ -1,0 +1,4 @@
+30, Ropa Dama y Caballero
+10, Lenceria
+40, Muebles Hogar
+20, Jugueteria

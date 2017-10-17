@@ -12,77 +12,67 @@ using namespace std;
 
 void getData(vector <Paciente> &ListaPacientes);
 
-int main(int argc, char** argv) {
-	
+int main(int argc, char** argv)
+{
 	int NumElem = 13;
 	vector<Paciente> ListaPacientes;
 	ColaCircular<Paciente> Consultorio(NumElem);
 	srand(time(NULL));
-	
+
 	int ayuda[3] = {3,4,5};
 	int ayuda2[3] = {5,6,7};
 	int r = 0, t = 0, l = 0;
 	int tiempoNuevoPaciente = 0, tiempoConsultaDoctor = 0;
-	
+
 	getData(ListaPacientes);
-//	for (int i = 0; i < ListaPacientes.size(); i++) 
-//		if (Consultorio.Add(ListaPacientes[i]) == -1) {
-//			
-////			cout << "Cliente Rechazado sala de espera llena" << endl;
-//			
-//		}
-		t = ayuda2[(rand()%3)];
-	while(l < ListaPacientes.size()){
-		tiempoNuevoPaciente++; tiempoConsultaDoctor++;
-		cout << "Tiempo nuevo Paciente: " << tiempoNuevoPaciente << " Tiempo que tarda el doctor en atender: " << tiempoConsultaDoctor << endl; 
+	t = ayuda2[(rand()%3)];
+	while(l < ListaPacientes.size()) {
+		tiempoNuevoPaciente++;
+		tiempoConsultaDoctor++;
+		cout << "Tiempo nuevo Paciente: " << tiempoNuevoPaciente << " Tiempo que tarda el doctor en atender: " << tiempoConsultaDoctor << endl;
 		if (tiempoNuevoPaciente == 5) {
 			cout << endl;
 			tiempoNuevoPaciente = 0;
 			r = ayuda[(rand()%3)];
-			for (int i = 0; i < r; i++) 
-				if (Consultorio.Add(ListaPacientes[l++]) == -1) {
-					ListaPacientes[l].imprimir(); cout << " -> Cliente Rechazado sala de espera llena" << endl << endl;
+			for (int i = 0; i < r; i++) {
+				if (Consultorio.isLLena()) {
+					ListaPacientes[l++].imprimir();
+					cout << " -> Cliente Rechazado sala de espera llena" << endl << endl;
+				} else {
+					Consultorio.Anadir(ListaPacientes[l++]);
 				}
-			if (Consultorio.Add(ListaPacientes[l]) != -1) {
-				cout << "****************************************" << endl;
-				cout << "Pacientes en sala de espera... " << endl;
-				Consultorio.Print();		
-				cout << "****************************************" << endl;
 			}
-				
-			
+			cout << "****************************************" << endl;
+			cout << "Pacientes en sala de espera... " << endl;
+			Consultorio.Imprimir();
+			cout << "****************************************" << endl;
 		}
-				
 		if (tiempoConsultaDoctor == t) {
 			t = ayuda2[(rand()%3)];
 			tiempoConsultaDoctor = 0;
 			Paciente eli;
-			Consultorio.Delete(eli);
-			cout << endl << "Paciente atendido con exito: "; eli.imprimir(); cout << endl << endl;
+			eli = Consultorio.Leer();
+			cout << endl << "Paciente atendido con exito: ";
+			eli.imprimir();
+			cout << endl << endl;
 		}
-			
-		
 		Sleep(1000);
-		
 	}
-	
-
 	return 0;
 }
 
 void getData(vector <Paciente> &ListaPacientes)
 {
-	
 	fstream arch;
 	arch.open("Paciente.txt", ios::in);
 	string linea;
 	char *split;
 	int cont = 0;
 	Paciente p;
-	
+
 	if(arch.fail())
 		cout << "Error al abrir el archivo Paciente.txt" << endl;
-	else{
+	else {
 		while (getline(arch,linea)) {
 			split = strtok(&linea[0],",");
 			while (split != NULL) {
@@ -99,26 +89,6 @@ void getData(vector <Paciente> &ListaPacientes)
 		}
 	}
 	cout << "-----------------------------------------------" << endl;
-	
-	
-	
-	
 }
 
-/*
-- EN UN CONSULTORIO MEDICO LLEGAN DE 3 A 5 PACIENTES CADA 5 UNIDADES DE TIEMPO
-EL CONSULTORIO TIENE UN AREA DE ESPERA DE CAPACIDAD MAXIMA PARA TRECE PERSONAS
-CUANDO SE LLENA Y LLEGAN MAS PACIENTES ESTOS ABANDONAN O SE RETIRAN SIN SER
-REGISTRADOS NI ATENDIDOS.
-- EL MEDICO ATIENDE EN ORDEN DE LLEGADA UN PACIENTE ENTRE 3 Y 7 UNIDADES DE TIEMPO
-- SE REGISTRA POR CADA PACIENTE, EL NOMBRE, LA EDAD , LA CEDULA DE IDENTIDAD
-- EN FUNCION DE LA INFORMACION ANTERIOR SE PIDE ESCRIBIR UN PROGRAMA QUE TOME
-LOS DATOS DE LOS PACIENTES QUE INGRESAN A LA ZONA DE ESPERA DEL CONSULTORIO
-DESDE EL ARCHIVO DE TEXTO PACIENTE.TXT, SEPARANDO CEDULA NOMBRE Y EDAD POR ","
-	* MOSTRAR EN PANTALLA CADA UNIDAD DE TIEMPO TRANSCURRIDO, LAS PERSONAS QUE
-	ESTAN EN AL ZONA DE ESPERA, EL PACIENTE QUE ESTA SIENDO ATENDIDO POR EL 
-	MEDICO, Y LA CANTIDAD DE PERSONAS QUE NO PUDIERON INGRESAR AL CONSULTORIO
-	* FINALIZAR LA SIMULACION CUANDO EL MEDICO HAYA ATENDIDO EL ULTIMO 
-	PACIENTE Y SE HAYA VACIADO EL ARCHIVO DE TEXTO.
-pd: MAS DE 13 PERSONAS..
-*/
+

@@ -1,0 +1,9 @@
+Pedro,3
+Luis,2
+Maria,3
+Androide,2
+Santiago,0
+Maduro,4
+Putin,1
+Ana,3
+fake,4
